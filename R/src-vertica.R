@@ -565,7 +565,7 @@ getSchemas <- function(con) {
     })
 }
 
-sql_subquery.VerticaConnection <- dplyr:::sql_subquery.SQLiteConnection
+sql_subquery.VerticaConnection <- dbplyr:::sql_subquery.SQLiteConnection
 
 collect.tbl_vertica <- function(x, ..., n = Inf, warn_incomplete = TRUE)
 {

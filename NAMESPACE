@@ -58,5 +58,5 @@ export(execute_custom_R_udf)
 
 
 import(assertthat)
-import(dplyr)
+import(dbplyr)
 import(methods)
