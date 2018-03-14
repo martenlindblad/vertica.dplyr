@@ -94,22 +94,6 @@ src_vertica <- function(dsn = NULL, jdbcpath = NULL, dbname = NULL, host = NULL,
   vsrc
 }
 
-# Describes the connection
-#' @export
-src_desc.src_vertica <- function(x) {
-  info <- x$info
-    
-  if(x$con@type == "JDBC"){
-    host <- ifelse(is.null(info$host),"localhost",info$host)
-
-    paste0("Vertica ", info$type, " [", info$user, "@",
-      host, ":", info$port, "/", info$dbname, "]")
-  }else{
-    paste0("Vertica ", "ODBC Connection", "\n-----+DSN: ",info["Data_Source_Name"], "\n-----+Host: ", info["Server_Name"], 
-    "\n-----+DB Version: ", info["DBMS_Ver"], "\n-----+ODBC Version: ", info["Driver_ODBC_Ver"])
-  }
-}
-
 #' @export
 tbl.src_vertica <- function(src, from, ...) {
   tbl_sql("vertica", src = src, from = from, ...)
